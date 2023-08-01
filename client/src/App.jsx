@@ -6,12 +6,17 @@ import { useState } from 'react'
 function App() {
   const [queryDescription, setQueryDescription] = useState("")
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    console.log("form submited: ", queryDescription)
+  }
+
   return (
     <main className={styles.main}>
       <img src={sqlLogo} alt="" className={styles.icon} />
       <h3>Generate SQL with AI</h3>
 
-      <form>
+      <form onSubmit={onSubmit}>
         <input 
           type="text"
           nane="query-description"
